@@ -1,14 +1,10 @@
 ﻿
-using System;
-using System.Drawing.Imaging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
-using OpenQA.Selenium.PhantomJS;
+using System;
+using System.Drawing.Imaging;
 
 namespace SeleniumUiTests
 {
