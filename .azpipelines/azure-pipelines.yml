@@ -225,8 +225,8 @@ stages:
         resourceGroupName: '$(ResourceGroupName)'
         location: 'West Europe'
         templateLocation: 'Linked artifact'
-        csmFile: '$(System.DefaultWorkingDirectory)/**/arm/WebSiteSQLDatabase.json'
-        csmParametersFile: '$(System.DefaultWorkingDirectory)/**/arm/WebSiteSQLDatabase.parameters.json'
+        csmFile: '$(System.DefaultWorkingDirectory)/**/arm/azuredeploy.json'
+        csmParametersFile: '$(System.DefaultWorkingDirectory)/**/arm/azuredeploy.parameters.json'
         overrideParameters: '-hostingPlanName "houssemdellai-service-plan" -skuName "F1" -skuCapacity 1 -administratorLogin $(Database.Admin) -administratorLoginPassword $(Database.Password) -databaseName $(Database.Name) -collation "SQL_Latin1_General_CP1_CI_AS" -edition "Basic" -maxSizeBytes "1073741824" -requestedServiceObjectiveName "Basic" -webSiteName $(WebAppName) -sqlserverName $(SqlServerName)'
         deploymentMode: Validation
 
@@ -239,8 +239,8 @@ stages:
         resourceGroupName: '$(ResourceGroupName)'
         location: 'West Europe'
         templateLocation: 'Linked artifact'
-        csmFile: '$(System.DefaultWorkingDirectory)/**/arm/WebSiteSQLDatabase.json'
-        csmParametersFile: '$(System.DefaultWorkingDirectory)/**/arm/WebSiteSQLDatabase.parameters.json'
+        csmFile: '$(System.DefaultWorkingDirectory)/**/arm/azuredeploy.json'
+        csmParametersFile: '$(System.DefaultWorkingDirectory)/**/arm/azuredeployÍ.parameters.json'
         overrideParameters: '-hostingPlanName "houssemdellai-service-plan" -skuName "F1" -skuCapacity 1 -administratorLogin $(Database.Admin) -administratorLoginPassword $(Database.Password) -databaseName $(Database.Name) -collation "SQL_Latin1_General_CP1_CI_AS" -edition "Basic" -maxSizeBytes "1073741824" -requestedServiceObjectiveName "Basic" -webSiteName $(WebAppName) -sqlserverName $(SqlServerName)'
         deploymentMode: Complete
 
