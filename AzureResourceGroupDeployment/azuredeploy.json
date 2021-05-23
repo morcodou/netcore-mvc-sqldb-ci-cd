@@ -82,6 +82,9 @@
     },
     "sqlserverName": {
       "type": "string"
+    },
+    "location": {
+      "type": "string"
     }
   },
   "variables": {
@@ -90,11 +93,11 @@
     {
       "name": "[parameters('sqlserverName')]",
       "type": "Microsoft.Sql/servers",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "tags": {
         "displayName": "SqlServer"
       },
-      "apiVersion": "2014-04-01-preview",
+      "apiVersion": "2018-06-01-preview",
       "properties": {
         "administratorLogin": "[parameters('administratorLogin')]",
         "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
@@ -103,11 +106,11 @@
         {
           "name": "[parameters('databaseName')]",
           "type": "databases",
-          "location": "[resourceGroup().location]",
+          "location": "[parameters('location')]",
           "tags": {
             "displayName": "Database"
           },
-          "apiVersion": "2014-04-01-preview",
+          "apiVersion": "2018-06-01-preview",
           "dependsOn": [
             "[resourceId('Microsoft.Sql/servers/', parameters('sqlserverName'))]"
           ],
@@ -120,11 +123,11 @@
         },
         {
           "type": "firewallrules",
-          "apiVersion": "2014-04-01-preview",
+          "apiVersion": "2018-06-01-preview",
           "dependsOn": [
             "[resourceId('Microsoft.Sql/servers/', parameters('sqlserverName'))]"
           ],
-          "location": "[resourceGroup().location]",
+          "location": "[parameters('location')]",
           "name": "AllowAllWindowsAzureIps",
           "properties": {
             "endIpAddress": "0.0.0.0",
@@ -137,7 +140,7 @@
       "apiVersion": "2015-08-01",
       "name": "[parameters('hostingPlanName')]",
       "type": "Microsoft.Web/serverfarms",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "tags": {
         "displayName": "HostingPlan"
       },
@@ -153,7 +156,7 @@
       "apiVersion": "2015-08-01",
       "name": "[parameters('webSiteName')]",
       "type": "Microsoft.Web/sites",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
       ],

@@ -19,6 +19,9 @@
     },
     "sqlserverName": {
       "value": "houssemdellai-sql"
+    },
+    "location": {
+      "value": "canadacentral"
     }
   }
 }
